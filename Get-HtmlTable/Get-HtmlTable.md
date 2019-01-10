@@ -171,10 +171,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### List of input types that are accepted by this function.
+### System.String
 ## OUTPUTS
 
-### List of output types produced by this function.
+### System.IO.File
 ## NOTES
 Place additional notes here.
 

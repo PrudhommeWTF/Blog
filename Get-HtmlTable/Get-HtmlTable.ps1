@@ -88,11 +88,11 @@ Function Get-HtmlTable {
         https://blog.prudhomme.wtf/
 
         .INPUTS
-        List of input types that are accepted by this function.
+        System.String
 
         .OUTPUTS
-        List of output types produced by this function.
-    #>
+        System.IO.File
+     #>
     Param(
         [Parameter(
             Mandatory = $true
