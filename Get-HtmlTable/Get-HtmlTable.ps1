@@ -85,7 +85,7 @@ Function Get-HtmlTable {
         Author: Thomas Prud'homme (Blog: https://blog.prudhomme.wtf Tw: @Prudhomme_WTF).
 
         .LINK
-        https://blog.prudhomme.wtf/
+        https://github.com/PrudhommeWTF/Stuffs/blob/master/Get-HtmlTable/Get-HtmlTable.md
 
         .INPUTS
         System.String
@@ -93,6 +93,9 @@ Function Get-HtmlTable {
         .OUTPUTS
         System.IO.File
      #>
+    [CmdletBinding(
+        HelpUri = 'https://github.com/PrudhommeWTF/Stuffs/blob/master/Get-HtmlTable/Get-HtmlTable.md'
+    )]
     Param(
         [Parameter(
             Mandatory = $true
