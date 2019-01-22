@@ -33,6 +33,31 @@
         .PARAMETER LogFile
         Specify the file to write messages in.
 
+        .EXAMPLE
+        Write-LogEntry -Info 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
+        
+        Will output in Write-Verbose and in specified log file the specified Info string.
+
+        .EXAMPLE
+        Write-LogEntry -Warning 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
+        
+        Will output in Write-Warning and in specified log file the specified Info string.
+
+        .EXAMPLE
+        Write-LogEntry -Debugging 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
+        
+        Will output in Write-Debug and in specified log file the specified Info string.
+
+        .EXAMPLE
+        Write-LogEntry -ErrorMessage 'Test log entry' -ErrorRecord Value -LogFile 'C:\Logs\TestLogFile.log'
+        
+        Will output using Write-Host (sadly) with a red foreground and in specified log file the specified Info string.
+
+        .EXAMPLE
+        Write-LogEntry -Success 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
+        
+        Will output using Write-Host (sadly) with a green foreground and in specified log file the specified Info string.
+
         .NOTES
         Author: Thomas Prud'homme (Blog: https://blog.prudhomme.wtf Tw: @Prudhomme_WTF).
 
@@ -45,6 +70,8 @@
         .OUTPUTS
         System.IO.File
     #>
+
+
     [CmdletBinding(
         DefaultParameterSetName = 'Info', 
         SupportsShouldProcess   = $true, 
@@ -104,7 +131,29 @@
         [Management.Automation.ErrorRecord]$ErrorRecord,
  
         [Parameter(
-            ValueFromPipelineByPropertyName = $true
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true, 
+            ParameterSetName                = 'Info'
+        )]
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true, 
+            ParameterSetName                = 'Warning'
+        )]
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true, 
+            ParameterSetName                = 'Debugging'
+        )]
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true, 
+            ParameterSetName                = 'Success'
+        )]
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true, 
+            ParameterSetName                = 'ErrorMessage'
         )]
         [Alias('File', 'Location')]
         [String]$LogFile
@@ -128,6 +177,8 @@
     
     Switch ($PSBoundParameters.Keys) {
          'ErrorMessage' {
+            Write-Host -Object "ERROR: [$([DateTime]::Now)] $ErrorMessage" -ForegroundColor Red
+
             $null = $Mutex.WaitOne()
  
             Add-Content -Path $LogFile -Value "$([DateTime]::Now) [ERROR]: $ErrorMessage"
@@ -146,6 +197,7 @@
             Continue
          }
          'Info' {
+            $VerbosePreference = 'Continue'
             Write-Verbose -Message "[$([DateTime]::Now)] $Info"
 
             $null = $Mutex.WaitOne()

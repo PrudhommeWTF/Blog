@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name:
-online version:
+online version: https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/Write-LogEntry.md
 schema: 2.0.0
 ---
 
@@ -14,28 +14,28 @@ Write formated entry in the PowerShell Host and a file.
 
 ### Info (Default)
 ```
-Write-LogEntry -Info <String> [-LogFile <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Write-LogEntry -Info <String> -LogFile <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Warning
 ```
-Write-LogEntry -Warning <String> [-LogFile <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Write-LogEntry -Warning <String> -LogFile <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Debugging
 ```
-Write-LogEntry -Debugging <String> [-LogFile <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Write-LogEntry -Debugging <String> -LogFile <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ErrorMessage
 ```
-Write-LogEntry -ErrorMessage <String> [-ErrorRecord <ErrorRecord>] [-LogFile <String>] [-WhatIf] [-Confirm]
+Write-LogEntry -ErrorMessage <String> [-ErrorRecord <ErrorRecord>] -LogFile <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### Success
 ```
-Write-LogEntry -Success <String> [-LogFile <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Write-LogEntry -Success <String> -LogFile <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -45,45 +45,38 @@ Function to write message within the PowerShell Host and persist it into a selec
 
 ### EXAMPLE 1
 ```
-Write-LogEntry -Info Value
+Write-LogEntry -Info 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
 ```
 
-Describe what this call does
+Will output in Write-Verbose and in specified log file the specified Info string.
 
 ### EXAMPLE 2
 ```
-Write-LogEntry -Warning Value
+Write-LogEntry -Warning 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
 ```
 
-Describe what this call does
+Will output in Write-Warning and in specified log file the specified Info string.
 
 ### EXAMPLE 3
 ```
-Write-LogEntry -Debugging Value
+Write-LogEntry -Debugging 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
 ```
 
-Describe what this call does
+Will output in Write-Debug and in specified log file the specified Info string.
 
 ### EXAMPLE 4
 ```
-Write-LogEntry -ErrorMessage Value -ErrorRecord Value
+Write-LogEntry -ErrorMessage 'Test log entry' -ErrorRecord Value -LogFile 'C:\Logs\TestLogFile.log'
 ```
 
-Describe what this call does
+Will output using Write-Host (sadly) with a red foreground and in specified log file the specified Info string.
 
 ### EXAMPLE 5
 ```
-Write-LogEntry -Success Value
+Write-LogEntry -Success 'Test log entry' -LogFile 'C:\Logs\TestLogFile.log'
 ```
 
-Describe what this call does
-
-### EXAMPLE 6
-```
-Write-LogEntry -LogFile Value
-```
-
-Describe what this call does
+Will output using Write-Host (sadly) with a green foreground and in specified log file the specified Info string.
 
 ## PARAMETERS
 
@@ -191,7 +184,7 @@ Type: String
 Parameter Sets: (All)
 Aliases: File, Location
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
@@ -235,15 +228,14 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### List of input types that are accepted by this function.
+### System.String
 ## OUTPUTS
 
-### List of output types produced by this function.
+### System.IO.File
 ## NOTES
-Place additional notes here.
+Author: Thomas Prud'homme (Blog: https://blog.prudhomme.wtf Tw: @Prudhomme_WTF).
 
 ## RELATED LINKS
 
-[URLs to related sites
-The first link is opened by Get-Help -Online Write-LogEntry]()
+[https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/Write-LogEntry.md](https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/Write-LogEntry.md)
 
