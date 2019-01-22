@@ -18,7 +18,7 @@
         Author: Thomas Prud'homme (Blog: https://blog.prudhomme.wtf Tw: @Prudhomme_WTF).
 
         .LINK
-        https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/New-ReadHostRequest.md
+        https://github.com/PrudhommeWTF/Stuffs/blob/master/New-ReadHostRequest/New-ReadHostRequest.md
 
         .INPUTS
         System.String

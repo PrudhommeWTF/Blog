@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name:
-online version: https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/New-ReadHostRequest.md
+online version: https://github.com/PrudhommeWTF/Stuffs/blob/master/New-ReadHostRequest/New-ReadHostRequest.md
 schema: 2.0.0
 ---
 
@@ -75,5 +75,5 @@ Author: Thomas Prud'homme (Blog: https://blog.prudhomme.wtf Tw: @Prudhomme_WTF).
 
 ## RELATED LINKS
 
-[https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/New-ReadHostRequest.md](https://github.com/PrudhommeWTF/Stuffs/blob/master/Write-LogEntry/New-ReadHostRequest.md)
+[https://github.com/PrudhommeWTF/Stuffs/blob/master/New-ReadHostRequest/New-ReadHostRequest.md](https://github.com/PrudhommeWTF/Stuffs/blob/master/New-ReadHostRequest/New-ReadHostRequest.md)
 
